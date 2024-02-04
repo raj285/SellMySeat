@@ -1,12 +1,26 @@
-import React from 'react'
+import React from "react";
 import Navbar from "../components/Navbar";
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
+import Card from "../components/Card";
+import Carousel from "../components/Carousel";
 export default function Home() {
   return (
     <div>
-        <div><Navbar/></div>
-      <div>i am body</div>
-      <Footer/>
+      <div>
+        <Navbar />
+      </div>
+      <div className="container" style={{objectFit:"contain !important"}}> 
+      <Carousel/>
+      </div>
+      <div>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
