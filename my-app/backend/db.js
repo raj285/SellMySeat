@@ -1,8 +1,17 @@
-const mongoose =require('mongoose');
-const url1="localhost:27017/sellmyseat"
-
-const t=async ()=>{
-    await mongoose.connect(url1);
-    console.log("ejkdudfznldz");
-}
-module.exports =t;
+const mongoose=require('mongoose');
+const mongoURI = "mongodb://127.0.0.1:27017/sellmyseat";
+const mongoDB = async () => {
+    try {
+      await mongoose.connect(mongoURI);
+      console.log("Connected!");
+      // let fetched_data = mongoose.connection.db.collection("smsdata");
+      // let data = await fetched_data.find({}).toArray();
+      // res.send(data)
+      // console.log(data);
+    } catch (error) {
+      console.log("err: ", error);
+    }
+  };
+  
+  module.exports = mongoDB;
+   
