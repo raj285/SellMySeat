@@ -32,7 +32,7 @@ export default function Signup() {
     }
     else{
       alert("succesfull");
-      navigate("/loginuser");
+      navigate("/login");
     }
   };
 
