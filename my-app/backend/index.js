@@ -1,24 +1,16 @@
 const express = require('express');
 const app = express();
 const connectToMongoDB = require("./db");
+const path1=require("./routes/CreateUser")
+app.use((req,res,next)=>{
+    res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
+    res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept");
+    next();
+})
 app.use(express.json());
-app.use('/api',require("./routes/CreateUser"))
-// used middleware here 
-const startServer = async () => {
-    try {
-        await connectToMongoDB(); // Connect to MongoDB before defining routes and starting the server
+app.use('/api',path1);
+// app.use('/api',require("./"))
+app.listen(5000, () => {
+    console.log('Server is running on port 5000');
+});
 
-        // app.get('/', (req, res) => {
-        //     console.log("Request received");
-        //     res.send('Hellfddddjjjjjddddo World!');
-        // }); 
-        // app.use('/api/')
-        app.listen(5000, () => {
-            console.log('Server is running on port 5000');
-        });
-    } catch (error) {
-        console.error("Error starting the server:", error);
-    }
-};
-
-startServer(); // Start the Express server after the database connection is established

@@ -17,6 +17,10 @@ const Userschema= new schema({
         type:String,
         required:true        
     },
+    rpassword:{
+        type:String,
+        required:true
+    },
     date:{
         type:Date,
         default:Date.now
