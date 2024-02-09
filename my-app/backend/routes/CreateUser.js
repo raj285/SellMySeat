@@ -45,7 +45,7 @@ async (req,res)=>{
     }
 }) 
 
-router.post("/loginuser",
+router.post("/login",
 
 [body('email').isEmail(),
 body('password', 'Password length must be greater than 8 and contain at least one numeric value, one alphabet, and one special character')
